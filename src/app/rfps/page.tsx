@@ -26,6 +26,7 @@ export default function Page() {
       <RfpCardNew tags={["geotechnical", "remediation"]} src="/det.jpg" heading="Detroit River Area of Concern" content="Department of Environment, Great Lakes requests preparation of a professional services for the Detroit River Remedial Investigation for the Contaminated Sediments, Wayne County, Michigan" />      
       <RfpCardNew tags={["brownfield", "contamination"]} heading="Brookfield Remediation" content="The town of Brookfield is soliciting bids for Brownfiled remediation" src="/brook.png"/>      
     </div>
+      <div><RfpUpload /></div>
     </>
   );
 }

@@ -3,9 +3,21 @@
 // import { useEffect, useState } from 'react';
 import { promises as fs } from 'fs';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { fetchRfpSummary } from '@/apis/data';
 import RfpSection from './rfp-section';
 import RfpImages from './rfp-images';
+import ParentPxioChatBot from '../chatbot/chatbot-parent';
+import Link from 'next/link';
+import RfpCustomerSection from './rfp-customer-section';
+import Search from '../general/search';
+import PencilIcon from '@heroicons/react/24/outline/PencilIcon';
+import TrashIcon from '@heroicons/react/24/outline/TrashIcon';
+import { Create, Delete, Update } from '../general/buttons';
+import RfpSowSection from './rfp-sow-section';
+import RfpQualificationSection from './rfp-qualification-section';
+import RfpBdderQuestiosSection from './rfp-bidder-questions';
+import RfpTasksSection from './rfp-tasks-section';
 //import { AiFillHeart, AiFillCheckCircle, AiFillControl } from 'react-icons/ai'
 
 export default async function RfpDetails({title, content}: {title: string;
@@ -41,22 +53,78 @@ export default async function RfpDetails({title, content}: {title: string;
     
     // const file = await fs.readFile(process.cwd() + '/public/data.json', 'utf8');
     // const data = JSON.parse(file);
-
+    const href = `proposals/${title}`
     return (
-      <div>        
-        <div className="capitalize text-2xl pb-5 font-bold">{title}</div>
-        <RfpSection heading="Summary" content={data?.summary}/>
-        <RfpSection heading="Client Information" content={data?.client}/>
-        <RfpSection heading="Project History" content={data?.projectHistory}/>
-        <RfpSection heading="Statement of work" content={data?.sow}/>
-        <RfpSection heading="Proposal Timeline" content={data?.proposalTimeline}/>
-        {/* <RfpSection heading="Timeline and Future Work" content={data?.timelineSow}/> */}
-        <RfpSection heading="Qualification" content={data?.qualification}/>
-        <RfpSection heading="Evaluation Criteria" content={data?.evaluation}/>
-        <RfpSection heading="Financial Obligation" content={data?.financialObligation}/>
-        <RfpSection heading="Submittal Process" content={data?.submittalProcess}/>
-        <RfpSection heading="Contact" content={data?.contact}/>
-        <RfpImages/>
+      <div className="flex flex-row w-full h-full">
+        <div className="flex flex-col max-w-6xl">                    
+          <RfpSection heading="Summary" content={data?.summary}/>
+          <RfpCustomerSection heading="Client Information" content={data?.client}/>
+          <RfpSection heading="Project History" content={data?.projectHistory}/>
+          <RfpSowSection heading="Scope of work" content={data?.sow}/>
+          {/* <RfpSection heading="Scope of work" content={data?.sow}/> */}
+          <RfpSection heading="Proposal Timeline" content={data?.proposalTimeline}/>
+          {/* <RfpSection heading="Timeline and Future Work" content={data?.timelineSow}/> */}
+          <RfpQualificationSection heading="Qualification" content={data?.qualification}/>
+          {/* <RfpSection heading="Qualification" content={data?.qualification}/> */}
+          <RfpSection heading="Evaluation Criteria" content={data?.evaluation}/>
+          <RfpSection heading="Financial Obligation" content={data?.financialObligation}/>
+          <RfpSection heading="Submittal Process" content={data?.submittalProcess}/>
+          <RfpSection heading="Contact" content={data?.contact}/>
+          {/* <RfpImages/> */}
+          <div className="flex items-left gap-2 md:m-2">
+            <Create heading="Attention Areas"/> 
+            <Create heading="Go/No-Go Analysis"/> 
+          </div>
+        </div>  
+        <div className='flex flex-col flex-grow pl-2'>
+          <div className="border-2 border-blue-400">
+            <div className="pl-2 capitalize strong bg-blue-200 text-gray-900 font-bold text-xl space-y-10">Project Drawings</div>
+            <div className='flex my-2'>
+              <Image
+                  src="/rfe1.png"
+                  width={200}
+                  height={200}
+                  alt="Picture of the author"
+              />
+              <Image
+                  src="/des4.jpeg"
+                  width={200}
+                  height={200}
+                  alt="Picture of the author"
+              />
+              <Image
+                  src="/rfe2.jpeg"
+                  width={200}
+                  height={200}
+                  alt="Picture of the author"
+              />
+              <Image
+                  src="/des5.jpeg"
+                  width={200}
+                  height={200}
+                  alt="Picture of the author"
+              />
+              <Image
+                  src="/des2.jpeg"
+                  width={200}
+                  height={200}
+                  alt="Picture of the author"
+              />
+            </div>
+          </div>
+          <div className='flex py-2'>
+            <ParentPxioChatBot />
+            <button className="ml-2 shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+            Generate Proposal ...
+            </button>
+          </div>
+          <div>
+            <RfpBdderQuestiosSection />
+          </div>
+          <div>
+            <RfpTasksSection />
+          </div>
+        </div>
       </div>
     );
 }

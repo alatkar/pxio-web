@@ -52,12 +52,12 @@ export default function RfpUpload() {
 
   return (   
     <div className={clsx(
-        "w-full max-w-md"
+        "border-stone-500 w-full max-w-md"
       )}>
-      <h1 className="capitalize text-2xl pt-5 pb-5 font-bold"> Upload new RFP</h1>        
+      <h1 className="capitalize text-2xl p-5 font-bold"> Upload new RFP</h1>        
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 border">
       <div className="mb-4">
-        <label className="lock text-gray-700 font-bold mb-2 required">Name of RFP: {' '} </label>
+        <label className="lock text-gray-700 font-bold mb-2 required">Name Your RFP: {' '} </label>
         <input type="text" id="rfpid" name="RFP Name" placeholder="RFP Name" 
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
       </div>

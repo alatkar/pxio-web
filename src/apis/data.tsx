@@ -5,7 +5,7 @@ export async function fetchRfps() {
   const headers = new Headers()
   headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
 
-  const res = await fetch('http://localhost:5000/rfps', 
+  const res = await fetch('http://localhost:5000/rfps/', 
   {headers: headers})
   // const rfps = await res.json()
   return res;
@@ -15,7 +15,17 @@ export async function fetchRfpSummary(rfpId: string) {
   const headers = new Headers()
   headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
 
-  const res = await fetch(`http://localhost:5000/rfps/${rfpId}/finance`, 
+  const res = await fetch(`http://localhost:5000/rfps/${rfpId}/summary`, 
+  {headers: headers})
+  // const rfps = await res.json()
+  return res;
+}
+
+export async function fetchProposal(proposalId: string) {
+  const headers = new Headers()
+  headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+
+  const res = await fetch(`http://localhost:5000/proposals/${proposalId}`, 
   {headers: headers})
   // const rfps = await res.json()
   return res;
@@ -30,7 +40,7 @@ export async function uploadNewRfp(formData: FormData) {
 
   console.log("Files => " + formData.getAll("file"))
 
-  const res = await fetch('http://localhost:5000/rfps', 
+  const res = await fetch('http://localhost:5000/rfps/', 
       {
         method: "POST", 
         body: formData

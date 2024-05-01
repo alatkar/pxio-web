@@ -5,8 +5,9 @@ import rehypeReact from "rehype-react";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import { Create, Delete, Update } from '../general/buttons';
 
-export default async function RfpSection({heading, content}: {heading: string; content: string})
+export default async function RfpCustomerSection({heading, content}: {heading: string; content: string})
 {
   let newCont = content?.replaceAll("\n", "\n\n")
   newCont = newCont?.replaceAll("\n\n\n\n", "\n\n")
@@ -17,6 +18,13 @@ export default async function RfpSection({heading, content}: {heading: string; c
         <div className="pl-2 capitalize strong bg-blue-200 text-gray-900 font-bold text-xl space-y-10">{heading}</div>
         {/* <div className="bg-slate-200 mb-4"><MDXRemote source={newCont} /></div>           */}
         <Markdown remarkPlugins={[remarkGfm, rehypeHighlight, rehypeReact, remarkParse, remarkRehype]} className="bg-slate-50">{newCont}</Markdown>
+
+        <div className="flex items-left gap-2 md:m-2">
+          <Create heading="Client's History with Firm"/>
+          <Create heading="Related Projects from the Client"/>
+          <Update id="1"/>
+          <Delete id="1"/>
+        </div> 
     </div>
   );
 }

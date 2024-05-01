@@ -16,14 +16,14 @@ import clsx from 'clsx';
 import { ForwardRefExoticComponent, RefAttributes, SVGProps, SetStateAction, useEffect, useState } from 'react';
 import { fetchRfps } from '@/apis/data';
 
-export default function NavLinksRfps({heading}: {heading: string}) {
+export default function NavLinksProposals({heading}: {heading: string}) {
   // Map of links to display in the side navigation.
   // Depending on the size of the application, this would be stored in a database.
   const [rfps, setRFPs] = useState([
-    { name: 'Detroit', href: '/rfps/detroit', icon: CheckCircleIcon },
-    { name: 'Kirkland', href: '/rfps/kirkland-city', icon: CheckCircleIcon },
-    { name: 'Chicago City', href: '/rfps/chyicago-city', icon: CheckCircleIcon },
-    { name: 'New York Subway', href: '/rfps/new-york-subway', icon: CheckCircleIcon },
+    { name: 'Detroit', href: '/proposals/detroit', icon: CheckCircleIcon },
+    { name: 'Kirkland', href: '/proposals/kirkland-city', icon: CheckCircleIcon },
+    { name: 'Chicago City', href: '/proposals/chyicago-city', icon: CheckCircleIcon },
+    { name: 'New York Subway', href: '/proposals/new-york-subway', icon: CheckCircleIcon },
   ]);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function NavLinksRfps({heading}: {heading: string}) {
         console.log("Response 1: " + data["res"])
         const newrfps: SetStateAction<{ name: string; href: string; icon: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref"> & { title?: string | undefined; titleId?: string | undefined; } & RefAttributes<SVGSVGElement>>; }[]> = []
         data["res"].forEach((element: string) => {
-          newrfps.push({"name": element, "href": `/rfps/${element}`, "icon": DocumentCheckIcon})
+          newrfps.push({"name": element, "href": `/proposals/${element}`, "icon": DocumentCheckIcon})
         }); 
         setRFPs(newrfps)
         console.log("RFPs: " + JSON.stringify(newrfps))
