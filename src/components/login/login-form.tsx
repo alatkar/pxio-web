@@ -52,7 +52,7 @@ export const LoginForm = () => {
   }
 
   return (
-    <CardWrapper headerLabel={"Please Login to Continue"} backButtonLabel={"Don't have an account?"} backButtonHref={"/register"} showSocial={true}>
+    <CardWrapper headerLabel={"Please Login to Continue"} backButtonLabel={"Registration by invite only!"} backButtonHref={"/"} showSocial={true}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-4">
