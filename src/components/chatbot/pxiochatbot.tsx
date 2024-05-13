@@ -99,7 +99,7 @@ export const PxioChatBot = ({
         <form onSubmit={handleSubmit}>          
             {           
             messages.map((message) => (              
-              <div>
+              <div key={message.role}>
                 {
                   message.role == "user" ?               
                   (

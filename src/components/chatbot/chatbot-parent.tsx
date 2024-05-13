@@ -5,7 +5,7 @@ import { PowerIcon } from '@heroicons/react/24/outline';
 import { FormEvent, useState } from 'react';
 import RfpUpload from '../rfp-upload/rfp-upload';
 import { PxioChatBot } from '../chatbot/pxiochatbot';
-import {useSearchParams, usePathname} from "next/navigation"
+import {usePathname} from "next/navigation"
 // import { signOut } from '@/auth';
 
 export default function ParentPxioChatBot() {
@@ -15,7 +15,6 @@ export default function ParentPxioChatBot() {
   return (   
    <>
       <button
-                 
         type="button" className="flex  bg-blue-500 text-white" 
         onClick={() => {setIsChatOpen(true)}}
         ><img src="/brain.jpeg" width={60}/>

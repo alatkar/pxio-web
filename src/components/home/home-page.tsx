@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import PxioLogo from '../navbar/pxio-logo';
 import { Navbar } from '../navbar/navbar';
+import { LoginButtonComp } from '../login/login-button';
+import { Button } from '../ui/button';
 
 export default function HomePage() {
   return (
@@ -16,12 +18,17 @@ export default function HomePage() {
           </a>
           {' '}proposals with your own AEC-specific enterprise-grade AI tool.
         </p>
-        <Link
+        <LoginButtonComp>
+          <Button className="flex items-center gap-5 self-start rounded-lg bg-slate-300 px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-red-400 md:text-base" variant="ghost">
+            Log in <ArrowRightIcon className="w-5 md:w-6" />
+          </Button>
+        </LoginButtonComp>
+        {/* <Link
           href="/login"
           className="flex items-center gap-5 self-start rounded-lg bg-slate-300 px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-red-400 md:text-base"
         >
           <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
-        </Link>
+        </Link> */}
       </div>
       <div className="flex">
         <div className="flex flex-col grow items-center justify-center p-6 rounded-lg bg-gray-50  md:px-28 md:py-12">
