@@ -1,6 +1,6 @@
 import SideNavRfps from "@/components/sidenav-rfps/sidenav-rfps";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       {/* <div className="flex h-screen flex-col md:flex-row md:overflow-hidden"> */}

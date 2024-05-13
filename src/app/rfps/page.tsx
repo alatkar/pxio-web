@@ -5,8 +5,10 @@ import RfpUpload from "@/components/rfp-upload/rfp-upload";
 import SideNavRfps from "@/components/sidenav-rfps/sidenav-rfps";
 import WelcomeBanner from "@/components/ui/welcomebanner";
 import Image from 'next/image';
+import { auth } from "../../../auth";
+import { prismaDb } from "@/lib/db";
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
     {/* <div>

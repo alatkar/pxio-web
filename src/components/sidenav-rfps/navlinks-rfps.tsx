@@ -15,11 +15,13 @@ import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { ForwardRefExoticComponent, RefAttributes, SVGProps, SetStateAction, useEffect, useState } from 'react';
 import { fetchRfps } from '@/apis/data';
+import { Rfp } from '@/lib/pxTypes';
 
-export default function NavLinksRfps({heading}: {heading: string}) {
+export default function NavLinksRfps({heading, rfps}: {heading: string, rfps: Rfp[] }) {
   // Map of links to display in the side navigation.
   // Depending on the size of the application, this would be stored in a database.
-  const [rfps, setRFPs] = useState([
+  
+  /*const [rfps, setRFPs] = useState([
     { name: 'Detroit', href: '/rfps/detroit', icon: CheckCircleIcon },
     { name: 'Kirkland', href: '/rfps/kirkland-city', icon: CheckCircleIcon },
     { name: 'Chicago City', href: '/rfps/chyicago-city', icon: CheckCircleIcon },
@@ -39,14 +41,14 @@ export default function NavLinksRfps({heading}: {heading: string}) {
         console.log("RFPs: " + JSON.stringify(newrfps))
       });
     console.log("Finished useEffect");
-  }, []);
+  }, []);*/
 
   const pathname = usePathname();
   return (
     <>
       <h1 className="capitalize text-lg pb-2 font-bold pl-2 strong bg-blue-200"> {heading}</h1>  
       {rfps.map((link) => {
-        const LinkIcon = link.icon;
+        const LinkIcon = CheckCircleIcon;
         return (
           <Link
             key={link.name}
