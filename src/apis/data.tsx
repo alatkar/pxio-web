@@ -1,11 +1,14 @@
 import { remark } from 'remark';
 import html from 'remark-html';
 
-export async function fetchRfps() {
-  const headers = new Headers()
-  headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+const apiBaseURL = process.env.NEXT_PUBLIC_PXIO_API_BASE_URL;
 
-  const res = await fetch('http://localhost:5000/rfps/', 
+export async function fetchRfps() {
+  console.log("Endpoint ", apiBaseURL);
+  const headers = new Headers()
+  headers.append('Access-Control-Allow-Origin', `${apiBaseURL}`);
+
+  const res = await fetch(`${apiBaseURL}/rfps/`, 
   {headers: headers})
   // const rfps = await res.json()
   return res;
@@ -13,9 +16,9 @@ export async function fetchRfps() {
 
 export async function fetchRfpSummary(rfpId: string) {
   const headers = new Headers()
-  headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+  headers.append('Access-Control-Allow-Origin', `${apiBaseURL}`);
 
-  const res = await fetch(`http://localhost:5000/rfps/${rfpId}/summary`, 
+  const res = await fetch(`${apiBaseURL}/rfps/${rfpId}/summary`, 
   {headers: headers})
   // const rfps = await res.json()
   return res;
@@ -23,9 +26,9 @@ export async function fetchRfpSummary(rfpId: string) {
 
 export async function fetchProposal(proposalId: string) {
   const headers = new Headers()
-  headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+  headers.append('Access-Control-Allow-Origin', `${apiBaseURL}`);
 
-  const res = await fetch(`http://localhost:5000/proposals/${proposalId}`, 
+  const res = await fetch(`${apiBaseURL}/proposals/${proposalId}`, 
   {headers: headers})
   // const rfps = await res.json()
   return res;
@@ -40,7 +43,7 @@ export async function uploadNewRfp(formData: FormData) {
 
   console.log("Files => " + formData.getAll("file"))
 
-  const res = await fetch('http://localhost:5000/rfps/', 
+  const res = await fetch(`${apiBaseURL}/rfps/`, 
       {
         method: "POST", 
         body: formData

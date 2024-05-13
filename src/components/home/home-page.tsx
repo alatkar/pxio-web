@@ -29,11 +29,11 @@ export default function HomePage() {
     <div className="mt-2 flex grow flex-col gap-1 md:flex-row">
       <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 md:w-2/6 md:px-20">
         <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-          <>Welcome to PX iO.</> {' '}
+          <>AI-Platform for Civil Engineering.</> {' '}
           <a href="https://phoenixio.one/" className="text-blue-500 strong">
-            Efficiently evaluate RFPs, identify risk items, and craft superior
+            Efficiently evaluate RFP/Qs, identify risk items, and build superior proposals.
           </a>
-          {' '}proposals with your own AEC-specific enterprise-grade AI tool.
+          {' '} Save time, improve accuracy, and increase your win-rate.
         </p>
         <LoginButtonComp>
           <Button className="flex items-center gap-5 self-start rounded-lg bg-slate-300 px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-red-400 md:text-base" variant="ghost">
