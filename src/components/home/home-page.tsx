@@ -65,6 +65,13 @@ export default function HomePage() {
                 alt="Phoenix iO Logo of Desktop Version"
                 priority
               />
+              <Image
+                src="/focus2.png"
+                width={360}
+                height={420}
+                className="block md:hidden"
+                alt="Phoenix iO Logo of Mobile Version"
+              />
             </CarouselItem>
             <CarouselItem>
               <Image
@@ -74,6 +81,13 @@ export default function HomePage() {
                 className="hidden md:block"
                 alt="Phoenix iO Logo of Desktop Version"
                 priority
+              />
+              <Image
+                src="/focus3.png"
+                width={360}
+                height={420}
+                className="block md:hidden"
+                alt="Phoenix iO Logo of Mobile Version"
               />
             </CarouselItem>
             <CarouselItem>
@@ -85,6 +99,13 @@ export default function HomePage() {
                 alt="Phoenix iO Logo of Desktop Version"
                 priority
               />
+              <Image
+                src="/focus4.png"
+                width={360}
+                height={420}
+                className="block md:hidden"
+                alt="Phoenix iO Logo of Mobile Version"
+              />
             </CarouselItem>
             <CarouselItem>
               <Image
@@ -95,6 +116,13 @@ export default function HomePage() {
                 alt="Phoenix iO Logo of Desktop Version"
                 priority
               />
+              <Image
+                src="/focus5.png"
+                width={360}
+                height={420}
+                className="block md:hidden"
+                alt="Phoenix iO Logo of Mobile Version"
+              />
             </CarouselItem>
             <CarouselItem>
               <Image
@@ -104,6 +132,13 @@ export default function HomePage() {
                 className="hidden md:block"
                 alt="Phoenix iO Logo of Desktop Version"
                 priority
+              />
+              <Image
+                src="/focus6.png"
+                width={360}
+                height={420}
+                className="block md:hidden"
+                alt="Phoenix iO Logo of Mobile Version"
               />
             </CarouselItem>
           </CarouselContent>
