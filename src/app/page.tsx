@@ -3,7 +3,7 @@ import Image from "next/image";
 import {auth} from '../../auth'
 import { cookies, headers } from 'next/headers'
 
-export async function myfunc() {
+async function myfunc() {
   const forwarded = headers().get("x-forwarded-for")
   console.log("Visitor IP address", forwarded)
   /* const ip = forwarded ? forwarded.split(/, /)[0] : Conneconnection.remoteAddress
