@@ -2,6 +2,8 @@ import { Message } from 'ai/react';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+const apiBaseURL = process.env.NEXT_PUBLIC_PXIO_API_BASE_URL;
+
 export async function chat(formData: FormData) {
 
   const timeout = 300000;
@@ -11,7 +13,7 @@ export async function chat(formData: FormData) {
 
   console.log("Prompt => " + formData.get("prompt"))
 
-  const res = await fetch('http://localhost:5000/rfps/chat', 
+  const res = await fetch(`${apiBaseURL}/chat/`, 
       {
         method: "POST", 
         body: formData
