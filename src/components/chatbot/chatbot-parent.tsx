@@ -10,7 +10,6 @@ import {usePathname} from "next/navigation"
 
 export default function ParentPxioChatBot() {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const pathname = usePathname();
 
   return (   
    <>
